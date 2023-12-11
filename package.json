@@ -2,6 +2,7 @@
   "name": "data-movies",
   "version": "0.0.0",
   "scripts": {
+    "build:prod": "ng build --configuration production --base-href /mpa/browser",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
