@@ -1,7 +1,6 @@
 import { Component ,ViewChild,ElementRef} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { HttpClientModule } from '@angular/common/http';
 
 //Importación de la interfaz
 import { Pelicula } from '../../interfaces/pelicula';
@@ -11,14 +10,13 @@ import { DatosService } from '../../providers/datos.service'
 
 @Component({
   selector: 'app-index',
-  standalone: true,
-  imports: [CommonModule, HttpClientModule],
   providers: [DatosService],
   templateUrl: './index.component.html',
-  styleUrl: './index.component.css'
+  styleUrls: ['./index.component.css']
 })
 export class IndexComponent {
   title = 'DataMovies';
+  filterPelicula ='';
   //Atributo con el tipo de dato de la interfaz
   public data: Pelicula[] = [];
   //Inyección de dependencia del servicio

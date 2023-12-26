@@ -27,44 +27,43 @@
             <p class="text-light fs-5 mb-5">Encuentra películas por imbd_id, título, tipo y género.</p>
             <section id="newsletter" class="bg-gray padding-xlarge">
                 <div class="container">
-                  <div class="newsletter">
-                    <div class="row">
-                      <div class="col-lg-12 col-md-12 title">
-                        <h3 class="text-danger">Buscador de películas</h3>
-                      </div>
-                      <div class="col-lg-12 col-md-12 d-flex align-items-center">
-                        <div class="d-flex w-100 border-bottom border-dark py-2">
-                          <input
-                            id="newsletter1"
-                            type="text"
-                            class="form-control border-0 p-0"
-                            placeholder="Título,Imbd_id, tipo o género de la película."
-                          />
-                          <button class="btn border-2 btn-danger" type="button">Buscar</button>
+                    <div class="newsletter">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 title">
+                                <h3 class="text-danger">Buscador de películas</h3>
+                            </div>
+                            <div class="col-lg-12 col-md-12 d-flex align-items-center">
+                                <div class="d-flex w-100 border-bottom border-dark py-2">
+                                    <input type="text" class="form-control" name="filterPelicula" placeholder="Título,Imbd_id, tipo o género de la película." [(ngModel)]="filterPelicula">
+                                    <button class="btn border-2 btn-danger" type="button">Buscar</button>
+                                </div>
+                            </div>
                         </div>
-                      </div>
                     </div>
-                  </div>
                 </div>
-              </section>
+            </section>
         </div>
 
         <div class="row g-5">
             <!-- Tabla con datos -->
             <table border="1" cellspacing="10px" cellpadding="10px" class="text-light">
-                <tbody>
-                    <th>IMDB_ID</th>
-                    <th>TITLE</th>
-                    <th>TYPE</th>
-                    <th>RELEASE_YEAR</th>
-                    <th>AGE_CERTIFICATION</th>
-                    <th>RUNTIME</th>
-                    <th>GENRES</th>
-                    <th>SEASONS</th>
-                    <th>IMDB_SCORE</th>
-                    <th>IMDB_VOTES</th>
-                    @for (datum of data; track datum.imdb_id) {
+                <thead>
                     <tr>
+                        <th>IMDB_ID</th>
+                        <th>TITLE</th>
+                        <th>TYPE</th>
+                        <th>RELEASE_YEAR</th>
+                        <th>AGE_CERTIFICATION</th>
+                        <th>RUNTIME</th>
+                        <th>GENRES</th>
+                        <th>SEASONS</th>
+                        <th>IMDB_SCORE</th>
+                        <th>IMDB_VOTES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--@for (datum of data; track datum.imdb_id) {-->
+                    <tr *ngFor="let datum of data | filter:filterPelicula">
                         <td> {{ datum.imdb_id}} </td>
                         <td> {{ datum.title}} </td>
                         <td> {{ datum.type}} </td>
@@ -75,12 +74,8 @@
                         <td> {{ datum.seasons}} </td>
                         <td> {{ datum.imdb_score}} </td>
                         <td> {{ datum.imdb_votes}} </td>
+                        
                     </tr>
-                    } @empty {
-                    <tr>
-                        <td colspan="4" class="text-center">Aún no hay datos</td>
-                    </tr>
-                    }
                 </tbody>
             </table>
         </div>
@@ -104,21 +99,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="accordion" id="accordionExample">
-                    <div class="accordion-item wow fadeInUp" data-wow-delay="0.1s">
-                        <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button " type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                How to build a website?
-                            </button>
-                        </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse show btn-danger" aria-labelledby="headingOne"
-                            data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                Dolor nonumy tempor elitr et rebum ipsum sit duo duo. Diam sed sed magna et magna
-                                diam aliquyam amet dolore ipsum erat duo. Sit rebum magna duo labore no diam.
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="accordion-item wow fadeInUp" data-wow-delay="0.2s">
                         <h2 class="accordion-header" id="headingTwo">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
