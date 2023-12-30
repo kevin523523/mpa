@@ -10,10 +10,15 @@ import { IndexComponent } from './pages/index/index.component'
 import { AboutComponent } from './pages/about/about.component'
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { routes } from './app.routes'; 
+import { routes } from './app.routes';
+import { ContactComponent} from './pages/contact/contact.component'
+import { LoginComponent} from './pages/login/login.component'
+
+
+
 
 @NgModule({
-  declarations: [AppComponent,FilterPipe,IndexComponent,NavbarComponent,FooterComponent],
+  declarations: [AppComponent,FilterPipe,IndexComponent,NavbarComponent,FooterComponent,],
   imports: [
     CommonModule,FormsModule,BrowserModule,RouterModule,HttpClientModule,RouterModule.forRoot(routes)
   ],
