@@ -17,10 +17,13 @@ import { LoginComponent} from './pages/login/login.component'
 
 
 
+
+
 @NgModule({
   declarations: [AppComponent,FilterPipe,IndexComponent,NavbarComponent,FooterComponent,],
   imports: [
-    CommonModule,FormsModule,BrowserModule,RouterModule,HttpClientModule,RouterModule.forRoot(routes)
+    CommonModule,FormsModule,BrowserModule,RouterModule,HttpClientModule,
+    RouterModule.forRoot(routes),ContactComponent,AboutComponent,LoginComponent
   ],
   bootstrap:[AppComponent]
 })
